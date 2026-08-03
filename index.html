@@ -229,7 +229,7 @@ form.addEventListener('submit', function(e) {
   const formData = new FormData(form);
 
   // 3. Send request to Google Apps Script
-  fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+  fetch('https://script.google.com/macros/s/AKfycbylnJY9dvJLRMYuu3NjZVNTVkozQwz9AAiPteke87ktEXlWF05AvVUclA6qXpLOq152Vw/exec', {
     method: 'POST',
     body: formData
   })
