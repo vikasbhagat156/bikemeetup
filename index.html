@@ -212,21 +212,40 @@ text-align:center;
 </footer>
   
 <script>
-   const form = document.getElementById("registrationForm");
+   // Select the form and submit button
+const form = document.querySelector('form');
+const submitBtn = document.querySelector('button[type="submit"]');
 
-form.addEventListener("submit", function(e) {
+form.addEventListener('submit', function(e) {
+  // Prevent page refresh
   e.preventDefault();
 
-  fetch("https://script.google.com/macros/s/AKfycbylnJY9dvJLRMYuu3NjZVNTVkozQwz9AAiPteke87ktEXlWF05AvVUclA6qXpLOq152Vw/exec", {
-    method: "POST",
-    body: new FormData(form)
+  // 1. Give the user instant feedback visually
+  const originalText = submitBtn.innerText;
+  submitBtn.disabled = true;
+  submitBtn.innerText = "Submitting...";
+
+  // 2. Collect form data
+  const formData = new FormData(form);
+
+  // 3. Send request to Google Apps Script
+  fetch('YOUR_GOOGLE_APPS_SCRIPT_URL', {
+    method: 'POST',
+    body: formData
   })
-  .then(() => {
-    alert("Registration Successful!");
-    form.reset();
+  .then(response => {
+    // 4. Show success popup once saved
+    alert('Registration Successful!');
+    form.reset(); // Clear input fields
   })
-  .catch(() => {
-    alert("Something went wrong.");
+  .catch(error => {
+    alert('Something went wrong. Please try again.');
+    console.error('Error:', error);
+  })
+  .finally(() => {
+    // 5. Restore the button back to normal
+    submitBtn.disabled = false;
+    submitBtn.innerText = originalText;
   });
 });
 </script>
