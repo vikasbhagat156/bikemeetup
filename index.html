@@ -190,25 +190,17 @@ text-align:center;
 
 <h2>Join Our Riders Club</h2>
 
-<form id="registrationForm">
-  <!-- <action="https://formsubmit.co/vikasbhagat156@gmail.com" method="POST"> -->
-
-<input type="text" name="Name" placeholder="Full Name" required>
-
-<input type="email" name="Email" placeholder="Email Address" required>
-
-<input type="tel" name="Phone" placeholder="Phone Number" required>
-
-<input type="text" name="Bike Model" placeholder="Bike Model">
-
-<input type="text" name="City" placeholder="City">
-
-<input type="text" name="Emergency Contact" placeholder="Emergency Contact">
-
-<textarea name="Message" placeholder="Tell us about yourself"></textarea>
-
-<button type="submit">Register Now</button>
-
+<form id="registrationForm" action="YOUR_APPS_SCRIPT_URL" method="POST">
+  <!-- The 'name' attribute must match your Script parameters -->
+  <input type="text" name="name" placeholder="Full Name" required>
+  <input type="email" name="email" placeholder="Email Address" required>
+  <input type="tel" name="phone" placeholder="Phone Number" required>
+  <input type="text" name="bikeModel" placeholder="Bike Model">
+  <input type="text" name="city" placeholder="City">
+  <input type="text" name="emergencyContact" placeholder="Emergency Contact">
+  <textarea name="message" placeholder="Message"></textarea>
+  
+  <button type="submit">Submit</button>
 </form>
 
 </section>
