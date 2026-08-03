@@ -190,7 +190,8 @@ text-align:center;
 
 <h2>Join Our Riders Club</h2>
 
-<form action="https://formsubmit.co/vikasbhagat156@gmail.com" method="POST">
+<form id="registrationForm">
+  <!-- <action="https://formsubmit.co/vikasbhagat156@gmail.com" method="POST"> -->
 
 <input type="text" name="Name" placeholder="Full Name" required>
 
@@ -217,6 +218,27 @@ text-align:center;
 <p>© 2026 Riders Meetup Club</p>
 
 </footer>
+  
+<script>
+   const form = document.getElementById("registrationForm");
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  fetch("https://script.google.com/macros/s/AKfycbylnJY9dvJLRMYuu3NjZVNTVkozQwz9AAiPteke87ktEXlWF05AvVUclA6qXpLOq152Vw/exec", {
+    method: "POST",
+    body: new FormData(form)
+  })
+  .then(() => {
+    alert("Registration Successful!");
+    form.reset();
+  })
+  .catch(() => {
+    alert("Something went wrong.");
+  });
+});
+</script>
 
 </body>
+ 
 </html>
